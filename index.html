@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Response Time Calculator</title>
+  <title>Calculadora de Tempo Médio de Resposta</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -19,7 +19,7 @@
       padding: 25px;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 400px;
+      max-width: 500px;
       width: 100%;
     }
 
@@ -28,9 +28,22 @@
       color: #333;
     }
 
+    .brand-section {
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+      background-color: #f9fbfc;
+    }
+
+    .brand-section h3 {
+      margin-top: 0;
+      color: #444;
+    }
+
     label {
       display: block;
-      margin-top: 15px;
+      margin-top: 10px;
       font-weight: bold;
       color: #555;
     }
@@ -70,27 +83,36 @@
 </head>
 <body>
   <div class="container">
-    <h2>🕒 Average Response Time Calculator</h2>
+    <h2>🕒 Calculadora de Tempo Médio de Resposta</h2>
     <form id="responseForm">
-      <label>Brand A Leads:</label>
-      <input type="number" id="leadsA" required>
+      <div class="brand-section">
+        <h3>Marca A</h3>
+        <label>Leads:</label>
+        <input type="number" id="leadsA" required>
 
-      <label>Brand A Response Time (hours):</label>
-      <input type="number" id="timeA" step="0.01" required>
+        <label>Tempo de resposta (horas):</label>
+        <input type="number" id="timeA" step="0.01" required>
+      </div>
 
-      <label>Brand B Leads:</label>
-      <input type="number" id="leadsB" required>
+      <div class="brand-section">
+        <h3>Marca B</h3>
+        <label>Leads:</label>
+        <input type="number" id="leadsB" required>
 
-      <label>Brand B Response Time (hours):</label>
-      <input type="number" id="timeB" step="0.01" required>
+        <label>Tempo de resposta (horas):</label>
+        <input type="number" id="timeB" step="0.01" required>
+      </div>
 
-      <label>Brand C Leads:</label>
-      <input type="number" id="leadsC" required>
+      <div class="brand-section">
+        <h3>Marca C</h3>
+        <label>Leads:</label>
+        <input type="number" id="leadsC" required>
 
-      <label>Brand C Response Time (hours):</label>
-      <input type="number" id="timeC" step="0.01" required>
+        <label>Tempo de resposta (horas):</label>
+        <input type="number" id="timeC" step="0.01" required>
+      </div>
 
-      <button type="button" onclick="calculateAverage()">Calculate Average</button>
+      <button type="button" onclick="calculateAverage()">Calcular Média</button>
     </form>
 
     <div id="result"></div>
@@ -112,7 +134,7 @@
 
       const average = totalLeads > 0 ? (totalTime / totalLeads).toFixed(2) : 0;
 
-      document.getElementById('result').textContent = `⏱ Average response time: ${average} hours`;
+      document.getElementById('result').textContent = `⏱ Tempo médio de resposta: ${average} horas`;
     }
   </script>
 </body>
